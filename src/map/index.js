@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import GoogleMapReact from 'google-map-react';
 import API from "../utils/API"
 import Marker from "../marker"
+import Modal from "../modal"
 require("dotenv").config();
 const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
 ;
@@ -13,7 +14,8 @@ class Map extends Component {
             lng: -95.7129
         },
         zoom: 5,
-        data: []
+        data: [],
+        currentParkInfo:{}
     }
 
     componentDidMount () {
@@ -29,6 +31,13 @@ class Map extends Component {
                 data:data
             })
         })
+    }
+    
+    handlePinClick = (data) =>{
+        this.setState({
+            currentParkInfo: data
+        })
+        
     }
 
     render() {
@@ -48,13 +57,29 @@ class Map extends Component {
                     return (
                         <Marker
                         key={i}
+                        uniqueId={i}
                         lat={lat}
                         lng={long}
                         data={park}
+                        onClick={this.handlePinClick}
                         />
                     )
                 })}
             </GoogleMapReact>
+            <Modal
+            parkTitle={this.state.currentParkInfo.fullName}
+            >
+                
+                {Object.keys(this.state.currentParkInfo).map((item, i)=>{
+                    if(item !== "fullName")
+                    return (
+                        <div>
+                        <b>{`${item}: `}</b><span>{`${this.state.currentParkInfo[item]}`}</span>
+                        </div>
+                    )
+                })}
+                
+            </Modal>
             </div>
         )
     }

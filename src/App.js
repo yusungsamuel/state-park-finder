@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
 import Map from "./map"
-import Modal from "./modal"
 
 class App extends Component {
-  state = {}
+  state = {
+    currentParkInfo: {}
+  }
+
+  // handlePinClick = (event) => {
+  //   event.preventDefault()
+  //   let parkCode = event.target.getAttribute("data-parkcode")
+  //   API.GetOnePark(parkCode)
+  //     .then(res => {
+  //       this.setState({
+  //         currentParkInfo: res.data.data
+  //       })
+  //     })
+
+  // }
 
   render() {
     return (
       <div>
-      <Map></Map>
-      <Modal/>
+        {console.log(this.state.currentParkInfo)}
+        <Map></Map>
       </div>
     );
   }

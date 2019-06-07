@@ -10,10 +10,10 @@ const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
 class Map extends Component {
     state = {
         center: {
-            lat: 37.0902,
-            lng: -95.7129
+            lat: 36.7783,
+            lng: -119.4179
         },
-        zoom: 5,
+        zoom: 6,
         data: [],
         currentParkInfo:{}
     }
@@ -42,7 +42,7 @@ class Map extends Component {
 
     render() {
         return (
-            <div style={{ height: '50vh', width: '70%' }}>
+            <div className="mx-auto" style={{ height: '50vh', width: '70%' }}>
 
             <GoogleMapReact
                 bootstrapURLKeys={{ key: API_KEY }}
@@ -74,7 +74,7 @@ class Map extends Component {
                     if(item !== "fullName")
                     return (
                         <div>
-                        <b>{`${item}: `}</b><span>{`${this.state.currentParkInfo[item]}`}</span>
+                        <b>{`${item.toUpperCase()}: `}</b><span>{`${this.state.currentParkInfo[item]}`}</span>
                         </div>
                     )
                 })}

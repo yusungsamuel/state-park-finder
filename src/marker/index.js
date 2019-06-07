@@ -6,12 +6,12 @@ export default class Marker extends Component {
         info: {
             description: this.props.data.description,
             designation: this.props.data.designation,
-            directionsInfo: this.props.data.directionsInfo,
-            directionsUrl: this.props.data.directionsUrl,
+            "directions Info": this.props.data.directionsInfo,
+            "directions Url": this.props.data.directionsUrl,
             fullName: this.props.data.fullName,
             states: this.props.data.states,
             url: this.props.data.url,
-            weatherInfo:this.props.data.weatherInfo
+            "weather Info":this.props.data.weatherInfo
         }
     }
 

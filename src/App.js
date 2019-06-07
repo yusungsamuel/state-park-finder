@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Map from "./map"
+import Jumbotron from "./jumbotron"
 
 class App extends Component {
   state = {
@@ -21,8 +22,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        {console.log(this.state.currentParkInfo)}
+      <div className="container">
+        <Jumbotron/>
         <Map></Map>
       </div>
     );

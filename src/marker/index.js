@@ -16,9 +16,14 @@ export default class Marker extends Component {
         }
     }
 
+    handleButtonClick = (event) => {
+        event.preventDefault()
+
+    }
+
     render() {
         return (
-            <div><i className="fas fa-thumbtack"></i></div>
+            <div data-toggle="modal" data-target="#parkInfo" ><i className="fas fa-thumbtack"></i></div>
         )
     }
 }

@@ -1,34 +1,63 @@
 import React, { Component } from "react"
 import GoogleMapReact from 'google-map-react';
+import API from "../utils/API"
+import Marker from "../marker"
 require("dotenv").config();
 const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
 ;
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 
 class Map extends Component {
     state = {
         center: {
             lat: 37.0902,
             lng: -95.7129
-        }
+        },
+        zoom: 5,
+        data: []
+    }
+
+    componentDidMount () {
+        API.AllForState().then(res => {
+            console.log(res)
+            let data = []
+            res.data.data.forEach((item) => {
+                if(item.latLong){
+                    data.push(item)
+                }
+            })
+            this.setState({
+                data:data
+            })
+        })
     }
 
     render() {
         return (
             <div style={{ height: '50vh', width: '70%' }}>
-                            {console.log(API_KEY)}
 
             <GoogleMapReact
                 bootstrapURLKeys={{ key: API_KEY }}
                 defaultCenter={this.state.center}
-                defaultZoom={5}
+                defaultZoom={this.state.zoom}
             >
-                <AnyReactComponent
-                    lat={59.955413}
-                    lng={30.337844}
-                    text="My Marker"
-                />
+                    {this.state.data.map((park, i) =>{
+                    let latLong = park.latLong.split(",")
+                    
+                    let lat = latLong[0].substr(4, latLong[0].length)
+                    let long = latLong[1].substr(6, latLong[1].length)
+                    return (
+                        <Marker
+                        key={i}
+                        lat={lat}
+                        lng={long}
+                        />
+                    )
+                })}
+                
+                {/* <Marker
+                    lat={37.7749}
+                    lng={-122.4194}
+                /> */}
             </GoogleMapReact>
             </div>
         )

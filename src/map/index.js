@@ -50,14 +50,10 @@ class Map extends Component {
                         key={i}
                         lat={lat}
                         lng={long}
+                        data={park}
                         />
                     )
                 })}
-                
-                {/* <Marker
-                    lat={37.7749}
-                    lng={-122.4194}
-                /> */}
             </GoogleMapReact>
             </div>
         )

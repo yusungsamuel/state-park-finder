@@ -4,6 +4,7 @@ import API from "../utils/API"
 import Marker from "../marker"
 import Modal from "../modal"
 import SearchForm from "../form"
+import "./style.css"
 require("dotenv").config();
 const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
     ;
@@ -57,12 +58,12 @@ class Map extends Component {
     render() {
         return (
 
-            <div>
+            <div className="map-wrapper rounded">
                 
                         <SearchForm
                             helper={this.handleFormSubmit}
                         />
-                    <div className=" mx-auto" style={{ height: '80vh', width: '50%' }}>
+                    <div className=" mx-auto" style={{ height: '80vh', width: '80%' }}>
                         <GoogleMapReact
                             bootstrapURLKeys={{ key: API_KEY }}
                             defaultCenter={this.state.center}

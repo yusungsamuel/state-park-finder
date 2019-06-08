@@ -1,3 +1,16 @@
 * {
     font-family: 'Noto Serif', serif;
 }
+
+body {
+    background-image: url("https://images.pexels.com/photos/129105/pexels-photo-129105.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed; 
+    background-size: cover;
+    min-height: 100vh;
+
+}

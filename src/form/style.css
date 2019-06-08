@@ -1,0 +1,9 @@
+.searchForm {
+    display: inline-block;
+    width: 60%;;
+}
+
+.search-button {
+    background: rgb(1, 75, 1);
+    color: white
+}

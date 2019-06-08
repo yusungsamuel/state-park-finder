@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Modal from "../modal"
+import "./style.css"
 
 export default class Marker extends Component {
     state = {
@@ -20,7 +20,7 @@ export default class Marker extends Component {
     render() {
         return (
             
-            <div onClick={()=>{this.props.onClick(this.state.info)}} data-toggle="modal" data-target="#parkInfo"><i className="fas fa-thumbtack"></i></div>
+            <div className="icon" onClick={()=>{this.props.onClick(this.state.info)}} data-toggle="modal" data-target="#parkInfo"><i className="fas fa-thumbtack fa-lg"></i></div>
             
         )
     }

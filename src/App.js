@@ -22,9 +22,11 @@ class App extends Component {
 
   render() {
     return (
+      <div>
       <div className="container">
-        <Jumbotron/>
+      <Jumbotron/>
         <Map></Map>
+      </div>
       </div>
     );
   }
